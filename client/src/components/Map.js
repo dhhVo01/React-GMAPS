@@ -37,6 +37,8 @@ function Map() {
             if (coords){
                 const lat = coords.latitude;
                 const lng = coords.longitude;
+                console.log(`GeolocationAvailable: ${isGeolocationAvailable}`);
+                console.log(`GeolocationEnabled: ${isGeolocationEnabled}`);
                 setSelected({lat, lng});
             };
     }, [coords])
