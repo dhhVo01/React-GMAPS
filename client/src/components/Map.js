@@ -26,7 +26,7 @@ export default function Places() {
   return <Map />;
 }
 function Map() {
-    const { coords, isGeolocationAvailable, isGeolocationEnabled } =
+    const { coords } =
         useGeolocated({
             positionOptions: {
                 enableHighAccuracy: false,
@@ -37,11 +37,9 @@ function Map() {
             if (coords){
                 const lat = coords.latitude;
                 const lng = coords.longitude;
-                console.log(`GeolocationAvailable: ${isGeolocationAvailable}`);
-                console.log(`GeolocationEnabled: ${isGeolocationEnabled}`);
                 setSelected({lat, lng});
             };
-    }, [coords])
+    }, [coords]);
     const [selected, setSelected] = useState(null);
 
     return (
