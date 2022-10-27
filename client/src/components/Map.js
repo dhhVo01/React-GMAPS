@@ -26,6 +26,7 @@ export default function Places() {
   return <Map />;
 }
 function Map() {
+    const [selected, setSelected] = useState(null);
     const { coords } =
         useGeolocated({
             positionOptions: {
@@ -40,8 +41,7 @@ function Map() {
                 setSelected({lat, lng});
             };
     }, [coords]);
-    const [selected, setSelected] = useState(null);
-
+    
     return (
         <>
         <div className="places-container">
@@ -49,7 +49,7 @@ function Map() {
         </div>
 
         <GoogleMap
-            zoom={10}
+            zoom={14}
             center={selected}
             mapContainerClassName="map-container"
         >
